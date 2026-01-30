@@ -1,17 +1,12 @@
-
 fn main() {
-    // outer scope
-    let x:i32 = 10;
-    let y:i32 = 20;
-
-    // inner scope
+    let x :i32 = 5; // x is immutable
+    let x = x + 1; //  new x is now shadowing the old x variable
+    println!("x is now: {}", x); // 6
     {
-	let x:i32 = 100;
-	let y:i32 = 200;
-	println!("result for x: {}", x);
-	println!("result for y: {}", y);	      
+	let x = x * 2;  // inner scope x 
+	println!("Inner Scope x is now: {}", x); // 12
+
     }
-    // outer scope
-    println!("result for x: {}", x);
-    println!("result for y: {}", y);	      
+
+    println!("the value of outer scope x: {}", x); // 6
 }

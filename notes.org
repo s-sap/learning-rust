@@ -2,36 +2,66 @@
 #+author: shivamsap
 #+startup: overview
 
-** Variables
-    - let keyword used to declare a variable
-    - i32 refers to integer type for the variable
-    - use mut to mark a variable are mutable
-    #+begin_src rust
-      let x: i32;     // uninitialized x variable but not uses
-      let y: i32 = 5; // initialized y variable
+* Variables
+  - let keyword used to declare a variable
+  - i32 refers to integer type for the variable
+  - ALL variables in rust are immutable
+  - use mut to mark a variable are mutable
+  #+begin_src rust
+    let x: i32;     // uninitialized x variable but not uses
+    let y: i32 = 5; // initialized y variable
 
-      // first a is declare as integer to 10
-      let mut a: i32 = 10; // 10
-      // mutable variable a is not equal to 15
-      a += 5; //a = 15
-    #+end_src
-    - scope
-    #+begin_src rust
-      fn main() {
-	  // outer scope
-	  let x:i32 = 10;
-	  let y:i32 = 20;
+    // first a is declare as integer to 10
+    let mut a: i32 = 10; // 10
+    // mutable variable a is not equal to 15
+    a += 5; //a = 15
 
-	  // inner scope
-	  {
-	      let x:i32 = 100;
-	      let y:i32 = 200;
-	      // inner scope will result as x=100, y=200
-	      println!("result for x: {}", x);
-	      println!("result for y: {}", y);	      
-	  }
-	  // outer scope will result as x=10, y=20	  
-	  println!("result for x: {}", x);
-	  println!("result for y: {}", y);	      
-      }
-    #+end_src
+    // string variable
+    let name: &str = "jack";
+    println!("name is {}", name);
+
+  #+end_src
+  - scope
+  - inner part that only see inside a block      
+  #+begin_src rust
+    fn main() {
+	// outer scope
+	let x:i32 = 10;
+	let y:i32 = 20;
+
+	// inner scope
+	{
+	    let x:i32 = 100;
+	    let y:i32 = 200;
+	    // inner scope will result as x=100, y=200
+	    println!("result for x: {}", x);
+	    println!("result for y: {}", y);	      
+	}
+	// outer scope will result as x=10, y=20	  
+	println!("result for x: {}", x);
+	println!("result for y: {}", y);	      
+    }
+  #+end_src
+** Shadowing
+   - shadowing feature allows you to declare a variable using the same name to shadow the variable
+   - use let keyword again effectively binds new variable to the old one
+   #+begin_src rust
+     fn main() {
+	 let x :i32 = 5; // x is immutable
+	 let x = x + 1; //  new x is now shadowing the old x variable
+	 println!("x is now: {}", x); // 6
+	 {
+	     let x = x * 2;  // inner scope x 
+	     println!("Inner Scope x is now: {}", x); // 12
+
+	 }
+
+	 println!("the value of outer scope x: {}", x); // 6
+     }
+   #+end_src
+
+* Functions
+  - define function using fn keyword
+  - main function is the starting point of your program in rust
+  - 
+    
