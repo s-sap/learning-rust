@@ -1,0 +1,37 @@
+#+TITLE: Rust programming notes
+#+author: shivamsap
+#+startup: overview
+
+** Variables
+    - let keyword used to declare a variable
+    - i32 refers to integer type for the variable
+    - use mut to mark a variable are mutable
+    #+begin_src rust
+      let x: i32;     // uninitialized x variable but not uses
+      let y: i32 = 5; // initialized y variable
+
+      // first a is declare as integer to 10
+      let mut a: i32 = 10; // 10
+      // mutable variable a is not equal to 15
+      a += 5; //a = 15
+    #+end_src
+    - scope
+    #+begin_src rust
+      fn main() {
+	  // outer scope
+	  let x:i32 = 10;
+	  let y:i32 = 20;
+
+	  // inner scope
+	  {
+	      let x:i32 = 100;
+	      let y:i32 = 200;
+	      // inner scope will result as x=100, y=200
+	      println!("result for x: {}", x);
+	      println!("result for y: {}", y);	      
+	  }
+	  // outer scope will result as x=10, y=20	  
+	  println!("result for x: {}", x);
+	  println!("result for y: {}", y);	      
+      }
+    #+end_src
