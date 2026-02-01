@@ -7,9 +7,23 @@
   - i32 refers to integer type for the variable
   - ALL variables in rust are immutable
   - use mut to mark a variable are mutable
-  #+begin_src rust
+  - signed integer i8, i16 ...
+  - unsigned integer u8, u16 ...
+  - floating points f32, f64
+  - char scalar value like 'a', 'c' (4 byte each)
+  - bool true or false
+  - unit value () an empty tuple
+  - array type, []
+  - array consists of Type and Length
+  - let my_array: [i32, 5] = [1,2,3,4,5];
+  - Tuple is a collection of value of different type
+  - Tuple is constructed using parentheses ()
+  #+begin_src rust    
+    // regular annotation
     let x: i32;     // uninitialized x variable but not uses
     let y: i32 = 5; // initialized y variable
+    // Suffix annotation
+    let an_int = 5i32;
 
     // first a is declare as integer to 10
     let mut a: i32 = 10; // 10
@@ -19,6 +33,20 @@
     // string variable
     let name: &str = "jack";
     println!("name is {}", name);
+
+    let mut mutable = 12; // type i32
+    mutable = 21;
+    // Variable type cannot be changed
+    mutable = true; // Error!
+    // Variable can be overwritten with shadowing
+    let mutable = true; // works!    
+
+    // Array [ Type, Length ]
+    let my_array: [i32, 5] = [1,2,3,4,5];
+
+    // Tuple variable
+    // Collection of value with different type
+    let my_tuple = (5u32, 1u8, true, -5.01f32);
 
   #+end_src
   - scope
@@ -41,7 +69,8 @@
 	println!("result for x: {}", x);
 	println!("result for y: {}", y);	      
     }
-  #+end_src
+  #+end_src  
+  
 ** Shadowing
    - shadowing feature allows you to declare a variable using the same name to shadow the variable
    - use let keyword again effectively binds new variable to the old one
@@ -60,6 +89,7 @@
      }
    #+end_src
 
+   
 * Functions
   - define function using fn keyword
   - main function is the starting point of your program in rust
